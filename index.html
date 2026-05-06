@@ -6,6 +6,17 @@
     <meta name="format-detection" content="telephone=no">
     <title>Biedronka - Program Nagród</title>
     
+    <!-- Google tag (gtag.js) - GA4 Integration -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYQ2MWEDB9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // This automatically tracks the "visit" (page_view)
+      gtag('config', 'G-JYQ2MWEDB9');
+    </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
@@ -132,7 +143,7 @@
             width: 100%;
             background: var(--biedronka-red);
             color: #ffffff;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             text-transform: uppercase;
             padding: 22px;
@@ -143,7 +154,8 @@
             margin-bottom: 16px;
             border: none;
             cursor: pointer;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            text-align: center;
         }
         
         .cta-btn:active {
@@ -173,6 +185,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+            margin-bottom: 40px;
         }
 
         details {
@@ -216,6 +229,18 @@
             line-height: 1.6;
         }
 
+        /* LEGAL FOOTER */
+        .legal-footer {
+            width: 100%;
+            padding: 20px;
+            background-color: #f3f4f6;
+            color: #9ca3af;
+            font-size: 10px;
+            text-align: center;
+            line-height: 1.5;
+            border-top: 1px solid var(--border-color);
+        }
+
     </style>
 </head>
 <body>
@@ -230,15 +255,15 @@
         <!-- Logo -->
         <img src="https://statickartypodarunkowe.biedronka.pl/img/logo.png" alt="Biedronka Logo" class="logo">
 
-        <!-- Headers -->
-        <h1>Program Nagród Biedronka</h1>
+        <!-- Headers (AGGRESSIVE WORDING) -->
+        <h1>Program Nagród</h1>
         <p class="subtitle">Odbierz kartę podarunkową o wartości 500 zł na codzienne zakupy.</p>
 
         <!-- Steps -->
         <div class="steps-container">
             <div class="step-card">
                 <div class="step-circle">1</div>
-                <div class="step-text">Kliknij "Odbierz Teraz"</div>
+                <div class="step-text">Kliknij "Odbierz Kartę"</div>
             </div>
             <div class="step-card">
                 <div class="step-circle">2</div>
@@ -254,12 +279,12 @@
             </div>
         </div>
 
-        <!-- PUT YOUR AFFILIATE LINK HERE -->
-        <a href="https://taprkr.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidGlkIjoiNzA1NWY0NDc5OWE3NDRmN2ZiYTc1ZDhhYjQ4MDliNzYiLCJ0cyI6MTc3ODA4Mjc0NjgyMn0?s1=pl1&s2=pl1" class="cta-btn">
-            ODBIERZ TERAZ
+        <!-- AFFILIATE LINK -->
+        <a href="https://taprkr.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidGlkIjoiNzA1NWY0NDc5OWE3NDRmN2ZiYTc1ZDhhYjQ4MDliNzYiLCJ0cyI6MTc3ODA4Mjc0NjgyMn0?s1=pl1&s2=pl1" id="final-affiliate-btn" class="cta-btn">
+            ODBIERZ KARTĘ
         </a>
         <p class="disclaimer">
-            Wypełnienie ankiety partnerskiej jest wymagane, aby odblokować i odebrać kartę podarunkową.
+            Wypełnienie ankiety partnerskiej jest wymagane, aby wejść do programu.
         </p>
 
         <!-- FAQs -->
@@ -283,13 +308,36 @@
             <details>
                 <summary>Kiedy otrzymam moją nagrodę?</summary>
                 <div class="faq-content">
-                    Cyfrową kartę podarunkową otrzymasz na podany adres e-mail natychmiast po prawidłowym ukończeniu wszystkich kroków weryfikacyjnych i ankiety.
+                    Cyfrową kartę podarunkową otrzymasz na podany adres e-mail po prawidłowym ukończeniu wszystkich kroków weryfikacyjnych.
                 </div>
             </details>
 
         </div>
-
     </div>
+
+    <!-- LEGAL DISCLAIMER -->
+    <div class="legal-footer">
+        Ta strona nie jest powiązana, sponsorowana ani wspierana przez Jeronimo Martins Polska S.A. ani markę Biedronka. Wszelkie znaki towarowe należą do ich prawnych właścicieli. Jest to niezależna kampania promocyjna (sweepstakes). Użytkownik bierze udział w programie nagród po spełnieniu warunków oferty partnera.
+    </div>
+
+    <script>
+        // Track the click on the CTA button before redirecting
+        document.getElementById('final-affiliate-btn').addEventListener('click', function(e) {
+            e.preventDefault(); 
+            var targetUrl = this.href;
+
+            // Fire GA4 Event for CTA click
+            gtag('event', 'click_affiliate_link', {
+                'event_category': 'conversion',
+                'event_label': 'redirected_to_offer'
+            });
+
+            // Small delay to ensure Google registers the event before leaving the page
+            setTimeout(function() {
+                window.location.href = targetUrl;
+            }, 150);
+        });
+    </script>
 
 </body>
 </html>
