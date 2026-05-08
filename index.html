@@ -19,9 +19,10 @@
         
         body { 
             font-family: 'Inter', sans-serif;
-            background-color: #f4f4f4; /* Subtle Walmart background gray */
+            background-color: #f4f4f4;
             color: #333333;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         .step-card {
             background: #ffffff;
@@ -42,7 +43,6 @@
         .faq-card.active svg {
             transform: rotate(180deg);
         }
-        .walmart-blue { color: #0071ce; }
         .walmart-bg-blue { background-color: #0071ce; }
         .walmart-yellow { background-color: #ffc220; }
     </style>
@@ -55,10 +55,10 @@
 
     <main class="w-full max-w-[400px] px-6 py-6 flex flex-col items-center">
         
-        <div class="mb-4 w-10">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 0 L58 35 L95 35 L65 57 L75 95 L50 75 L25 95 L35 57 L5 35 L42 35 Z" fill="#ffc220"/>
-            </svg>
+        <div class="mb-4 w-[110px]">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Walmart_spark_%282025%29.svg/1280px-Walmart_spark_%282025%29.svg.png" 
+                 alt="Walmart" 
+                 class="w-full h-auto object-contain"/>
         </div>
 
         <div class="text-center mb-6">
