@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Walmart Rewards Program | Official Website</title>
+    <title>Walmart Rewards | Official Portal</title>
     
-    <!-- Google Analytics Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BV47JTL2R9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -20,24 +19,22 @@
         
         body { 
             font-family: 'Inter', sans-serif;
-            background-color: #fcfcfc;
-            color: #202124;
+            background-color: #f4f4f4; /* Subtle Walmart background gray */
+            color: #333333;
             -webkit-font-smoothing: antialiased;
         }
         .step-card {
             background: #ffffff;
-            border: 1px solid #ececec;
-            border-radius: 1.25rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
         }
         .faq-card {
             background: #ffffff;
-            border: 1px solid #ececec;
-            border-radius: 1.25rem;
-            transition: all 0.2s ease;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
         }
         .faq-answer {
             display: none;
-            overflow: hidden;
         }
         .faq-card.active .faq-answer {
             display: block;
@@ -45,105 +42,99 @@
         .faq-card.active svg {
             transform: rotate(180deg);
         }
+        .walmart-blue { color: #0071ce; }
+        .walmart-bg-blue { background-color: #0071ce; }
+        .walmart-yellow { background-color: #ffc220; }
     </style>
 </head>
 <body class="flex flex-col items-center">
 
-    <!-- Top Banner -->
-    <div class="w-full bg-[#30b5e3] py-[6px] text-center">
-        <p class="text-[10px] font-bold text-white uppercase tracking-[0.15em]">3,500+ People Already Claimed</p>
+    <div class="w-full walmart-bg-blue py-1.5 text-center">
+        <p class="text-[10px] font-bold text-white uppercase tracking-wider">5,234 Rewards Claimed in the last 24h</p>
     </div>
 
-    <main class="w-full max-w-[400px] px-5 py-8 flex flex-col items-center">
+    <main class="w-full max-w-[400px] px-6 py-6 flex flex-col items-center">
         
-        <!-- Walmart Logo -->
-        <div class="mb-4 w-[130px]">
-            <img src="https://1000logos.net/wp-content/uploads/2017/05/Walmart-Logo.png" 
-                 alt="Walmart" 
-                 class="w-full h-auto object-contain"/>
+        <div class="mb-4 w-10">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 0 L58 35 L95 35 L65 57 L75 95 L50 75 L25 95 L35 57 L5 35 L42 35 Z" fill="#ffc220"/>
+            </svg>
         </div>
 
-        <!-- Heading Section -->
-        <div class="text-center mb-8">
-            <h1 class="text-[23px] font-extrabold leading-tight mb-1 tracking-tight">Walmart Rewards Program</h1>
-            <p class="text-gray-500 text-[13px] font-medium">Claim your $750 reward towards Walmart</p>
+        <div class="text-center mb-6">
+            <h1 class="text-[24px] font-extrabold leading-tight tracking-tight">Walmart Rewards</h1>
+            <p class="text-gray-500 text-[14px] font-medium mt-1">Claim your $750 Spring Reward</p>
         </div>
 
-        <!-- Steps Section -->
-        <div class="w-full space-y-3 mb-9">
+        <div class="w-full space-y-2.5 mb-8">
             <div class="step-card p-4 flex items-center gap-4">
-                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#30b5e3] text-white text-[14px] font-bold">1</div>
-                <p class="font-bold text-[15px] text-[#202124]">Click "Claim Now"</p>
+                <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full walmart-bg-blue text-white text-[14px] font-bold">1</div>
+                <p class="font-bold text-[15px]">Click "Claim Reward"</p>
             </div>
             <div class="step-card p-4 flex items-center gap-4">
-                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#30b5e3] text-white text-[14px] font-bold">2</div>
-                <p class="font-bold text-[15px] text-[#202124]">Enter your email and basic info</p>
+                <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full walmart-bg-blue text-white text-[14px] font-bold">2</div>
+                <p class="font-bold text-[15px]">Enter your delivery info</p>
             </div>
             <div class="step-card p-4 flex items-center gap-4">
-                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#30b5e3] text-white text-[14px] font-bold">3</div>
-                <p class="font-bold text-[15px] text-[#202124]">Complete 4-5 sponsored deals</p>
+                <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full walmart-bg-blue text-white text-[14px] font-bold">3</div>
+                <p class="font-bold text-[15px]">Complete 2-3 sponsor deals</p>
             </div>
             <div class="step-card p-4 flex items-center gap-4">
-                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#30b5e3] text-white text-[14px] font-bold">4</div>
-                <p class="font-bold text-[15px] text-[#202124]">Enjoy your $750 reward!</p>
+                <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full walmart-bg-blue text-white text-[14px] font-bold">4</div>
+                <p class="font-bold text-[15px]">Enjoy your $750 reward!</p>
             </div>
         </div>
 
-        <!-- CTA Button -->
         <div class="w-full text-center">
             <a id="claim-button" href="https://trksy.org/aff_c?offer_id=1921&aff_id=167172" 
-               class="block w-full bg-[#ff3b30] text-white text-[19px] font-extrabold py-[14px] rounded-full transition-all mb-3 uppercase tracking-wide active:opacity-90">
-                CLAIM NOW
+               class="block w-full walmart-yellow text-black text-[18px] font-extrabold py-4 rounded-full transition-transform active:scale-95 shadow-md uppercase tracking-wide">
+                CLAIM REWARD →
             </a>
-            <p class="text-[9px] text-[#30b5e3] font-semibold leading-tight px-4">
-                Completion of sponsored deals is required to claim your reward.
+            <p class="text-[9px] text-gray-400 mt-3 px-4 italic leading-tight">
+                Completion of required deals is necessary to receive your digital voucher. Valid for US residents only.
             </p>
         </div>
 
-        <!-- FAQ Section (Working Toggle) -->
-        <div class="w-full mt-12">
-            <h2 class="text-center text-[17px] font-extrabold mb-6 text-[#202124]">Frequently Asked Questions</h2>
-            
+        <div class="w-full mt-10">
+            <h2 class="text-center text-[16px] font-extrabold mb-5">Common Questions</h2>
             <div class="space-y-2">
-                <div class="faq-card p-5 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="faq-card p-4 cursor-pointer" onclick="this.classList.toggle('active')">
                     <div class="flex justify-between items-center">
-                        <span class="font-bold text-[14px] text-[#202124]">How long do the deals take?</span>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                        <span class="font-bold text-[13px]">How long does it take?</span>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
-                    <div class="faq-answer mt-3 text-[13px] text-gray-500 leading-relaxed">
-                        Most users are able to complete their required tasks in as little as 10-15 minutes.
-                    </div>
-                </div>
-                
-                <div class="faq-card p-5 cursor-pointer" onclick="this.classList.toggle('active')">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-[14px] text-[#202124]">What are deals?</span>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="faq-answer mt-3 text-[13px] text-gray-500 leading-relaxed">
-                        Deals consist of simple tasks such as testing out new apps, playing games, or signing up for trial services.
-                    </div>
+                    <div class="faq-answer mt-2 text-[12px] text-gray-500 leading-relaxed">Most users complete the verification in 10-15 minutes.</div>
                 </div>
 
-                <div class="faq-card p-5 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="faq-card p-4 cursor-pointer" onclick="this.classList.toggle('active')">
                     <div class="flex justify-between items-center">
-                        <span class="font-bold text-[14px] text-[#202124]">When will I receive my reward?</span>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                        <span class="font-bold text-[13px]">Is this the official portal?</span>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
-                    <div class="faq-answer mt-3 text-[13px] text-gray-500 leading-relaxed">
-                        Once you finish the required number of deals, your reward is processed and typically delivered via email within 24 hours.
+                    <div class="faq-answer mt-2 text-[12px] text-gray-500 leading-relaxed">This is an authorized promotional portal for Walmart inventory clearance.</div>
+                </div>
+
+                <div class="faq-card p-4 cursor-pointer" onclick="this.classList.toggle('active')">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-[13px]">How is it delivered?</span>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                     </div>
+                    <div class="faq-answer mt-2 text-[12px] text-gray-500 leading-relaxed">The $750 voucher is sent instantly to your email after verification.</div>
                 </div>
             </div>
+        </div>
+
+        <div class="mt-12 text-[10px] text-gray-400 text-center space-y-1">
+            <p>© 2026 Walmart Rewards Program</p>
+            <p>Privacy Policy | Terms of Service</p>
         </div>
 
     </main>
 
-    <!-- Event Tracking -->
     <script>
       document.getElementById('claim-button').addEventListener('click', function() {
         gtag('event', 'click_cta', {
-          'event_category': 'engagement',
+          'event_category': 'conversion',
           'event_label': 'Walmart $750 Claim',
           'value': 1
         });
