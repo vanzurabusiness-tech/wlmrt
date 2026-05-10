@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Walmart Rewards Portal</title>
+    <title>Walmart Rewards | Mother's Day Gift</title>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BV47JTL2R9"></script>
     <script>
@@ -15,23 +15,22 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         
         body { 
             font-family: 'Inter', sans-serif;
-            background-color: #F0F2F5;
-            color: #1C1E21;
+            background-color: #F3F3F3; /* Light gray from screenshot */
+            color: #000000;
             -webkit-font-smoothing: antialiased;
         }
-        .step-container {
+        .step-card {
             background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-radius: 25px; /* Large rounded corners from screenshot */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .faq-card {
             background: #ffffff;
-            border-radius: 12px;
-            transition: all 0.2s ease;
+            border-radius: 20px;
         }
         .faq-answer {
             max-height: 0;
@@ -39,89 +38,97 @@
             transition: max-height 0.3s ease-out;
         }
         .faq-card.active .faq-answer {
-            max-height: 200px;
-            margin-top: 8px;
+            max-height: 300px;
+            margin-top: 15px;
         }
         .faq-card.active .plus-icon {
             transform: rotate(45deg);
         }
         .walmart-blue { background-color: #0071ce; }
-        .walmart-yellow { background-color: #ffc220; }
-        .banner-red { background-color: #e60000; }
+        .walmart-text-blue { color: #0071ce; }
+        .banner-red { background-color: #D32F2F; } /* Direct match for the red banner */
     </style>
 </head>
 <body class="flex flex-col items-center">
 
-    <div class="w-full banner-red py-2 text-center shadow-md">
-        <p class="text-[12px] font-bold text-white tracking-tight uppercase">3,500+ People Already Claimed</p>
+    <div class="w-full banner-red py-3 text-center shadow-md">
+        <p class="text-[14px] font-bold text-white tracking-tight">3,500+ People Already Claimed</p>
     </div>
 
-    <main class="w-full max-w-[420px] px-5 py-4 flex flex-col items-center">
+    <main class="w-full max-w-[450px] px-6 py-10 flex flex-col items-center">
         
-        <div class="mb-3 w-[42px]">
+        <div class="mb-8 w-[70px]">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Walmart_spark_%282025%29.svg/1280px-Walmart_spark_%282025%29.svg.png" alt="Walmart Logo" class="w-full h-auto">
         </div>
 
-        <div class="text-center mb-4">
-            <h1 class="text-[26px] font-extrabold leading-tight tracking-tight mb-1">Walmart Gift Card</h1>
-            <p class="text-gray-500 text-[14px] font-medium leading-tight">
-                Claim your <span class="text-[#e60000] font-bold">$750</span> reward in 4 simple steps.
+        <div class="text-center mb-10">
+            <h1 class="text-[30px] font-[900] leading-tight tracking-tight mb-4">Walmart Mother's Day Gift</h1>
+            <p class="text-[#555555] text-[17px] font-medium leading-snug px-2">
+                Claim your <span class="text-[#D32F2F] font-bold">$750</span> Walmart Mother's Day gift in just a few simple steps.
             </p>
         </div>
 
-        <div class="w-full space-y-2 mb-5">
-            <div class="step-container p-3 flex items-center gap-4">
-                <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[14px] font-extrabold italic">1</div>
-                <p class="font-bold text-[14px]">Click "Claim Now"</p>
+        <div class="w-full space-y-4 mb-10">
+            <div class="step-card p-6 flex items-center gap-6">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[20px] font-black">1</div>
+                <p class="font-bold text-[18px]">Click "Claim Now"</p>
             </div>
-            <div class="step-container p-3 flex items-center gap-4">
-                <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[14px] font-extrabold italic">2</div>
-                <p class="font-bold text-[14px]">Enter your basic info</p>
+            <div class="step-card p-6 flex items-center gap-6">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[20px] font-black">2</div>
+                <p class="font-bold text-[18px]">Enter your email and basic info</p>
             </div>
-            <div class="step-container p-3 flex items-center gap-4">
-                <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[14px] font-extrabold italic">3</div>
-                <p class="font-bold text-[14px]">Complete sponsor deals</p>
+            <div class="step-card p-6 flex items-center gap-6">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[20px] font-black">3</div>
+                <p class="font-bold text-[18px]">Complete 4-5 sponsored deals</p>
             </div>
-            <div class="step-container p-3 flex items-center gap-4">
-                <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[14px] font-extrabold italic">4</div>
-                <p class="font-bold text-[14px]">Get your $750 code!</p>
+            <div class="step-card p-6 flex items-center gap-6">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[20px] font-black">4</div>
+                <p class="font-bold text-[18px]">Enjoy your $750 Walmart Mother's Day gift!</p>
             </div>
         </div>
 
         <div class="w-full text-center">
             <a id="claim-button" href="https://trksy.org/aff_c?offer_id=1921&aff_id=167172" 
-               class="block w-full walmart-yellow text-black text-[20px] font-black py-4 rounded-full transition-transform active:scale-95 shadow-[0_5px_0_#e5af1d] uppercase tracking-wide">
+               class="block w-full bg-[#D32F2F] text-white text-[22px] font-black py-5 rounded-full transition-transform active:scale-95 shadow-xl uppercase tracking-widest">
                 CLAIM NOW
             </a>
-            <p class="text-[10px] text-[#e60000] mt-4 px-4 font-semibold uppercase leading-tight italic">
-                Complete deals to unlock your reward
+            <p class="text-[12px] text-[#D32F2F] mt-8 px-6 font-bold leading-tight uppercase italic text-center">
+                Completion of sponsored deals is required to claim your Mother's Day gift.
             </p>
         </div>
 
-        <div class="w-full mt-10">
-            <h2 class="text-center text-[20px] font-extrabold mb-5">Common Questions</h2>
+        <div class="w-full mt-20">
+            <h2 class="text-center text-[26px] font-black mb-8">Frequently Asked Questions</h2>
             
-            <div class="space-y-2.5">
-                <div class="faq-card p-4 cursor-pointer shadow-sm border border-gray-100" onclick="toggleFaq(this)">
+            <div class="space-y-4">
+                <div class="faq-card p-6 cursor-pointer shadow-sm border border-gray-100" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <span class="font-bold text-[14px]">How long does this take?</span>
-                        <span class="plus-icon text-gray-400 text-xl transition-transform">+</span>
+                        <span class="font-bold text-[16px]">How long do the deals take?</span>
+                        <span class="plus-icon text-gray-400 text-3xl transition-transform font-light">+</span>
                     </div>
-                    <div class="faq-answer text-[13px] text-gray-500">Most users finish in 15-20 minutes.</div>
+                    <div class="faq-answer text-[15px] text-gray-500 leading-relaxed">Most people finish all required deals in about 15-20 minutes.</div>
                 </div>
 
-                <div class="faq-card p-4 cursor-pointer shadow-sm border border-gray-100" onclick="toggleFaq(this)">
+                <div class="faq-card p-6 cursor-pointer shadow-sm border border-gray-100" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <span class="font-bold text-[14px]">How do I get my card?</span>
-                        <span class="plus-icon text-gray-400 text-xl transition-transform">+</span>
+                        <span class="font-bold text-[16px]">What are deals?</span>
+                        <span class="plus-icon text-gray-400 text-3xl transition-transform font-light">+</span>
                     </div>
-                    <div class="faq-answer text-[13px] text-gray-500">The digital code is sent to your email instantly after verification.</div>
+                    <div class="faq-answer text-[15px] text-gray-500">Deals include trying new apps, subscriptions, or short surveys.</div>
+                </div>
+
+                <div class="faq-card p-6 cursor-pointer shadow-sm border border-gray-100" onclick="toggleFaq(this)">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-[16px]">When will I receive my gift?</span>
+                        <span class="plus-icon text-gray-400 text-3xl transition-transform font-light">+</span>
+                    </div>
+                    <div class="faq-answer text-[15px] text-gray-500">Your digital gift card is sent to your email immediately after verification.</div>
                 </div>
             </div>
         </div>
 
-        <footer class="mt-12 text-[10px] text-gray-400 text-center pb-8">
-            <p>© 2026 Promo Network. Not affiliated with Walmart Inc.</p>
+        <footer class="mt-20 text-[11px] text-gray-400 text-center pb-12">
+            <p>© 2026 Promotional Program. Not affiliated with Walmart Inc.</p>
         </footer>
 
     </main>
@@ -134,7 +141,7 @@
         document.getElementById('claim-button').addEventListener('click', function() {
             gtag('event', 'click_cta', {
                 'event_category': 'conversion',
-                'event_label': 'Walmart Compact LP',
+                'event_label': 'Walmart Mother Day Full Scale',
                 'value': 1
             });
         });
