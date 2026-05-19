@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Walmart Rewards Portal</title>
-    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BV47JTL2R9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,129 +9,310 @@
       gtag('config', 'G-BV47JTL2R9');
     </script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Walmart Reward Program</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        body { 
+        body {
             font-family: 'Inter', sans-serif;
-            background-color: #F6F7F9; /* Matching the clean off-white background */
-            color: #000000;
-            -webkit-font-smoothing: antialiased;
+            background-color: #f0f4f8;
+            color: #111;
+            padding-bottom: 110px;
         }
-        .step-card {
-            background: #ffffff;
+
+        /* GIFT CARD */
+        .gift-card {
+            background: linear-gradient(135deg, #0071CE 0%, #004f9a 60%, #003d7a 100%);
             border-radius: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-        .faq-card {
-            background: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
-        .faq-answer {
-            max-height: 0;
+            padding: 18px 20px 20px;
+            color: white;
+            position: relative;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            box-shadow: 0 12px 40px rgba(0,113,206,0.3);
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
-        .faq-card.active .faq-answer {
-            max-height: 200px;
-            margin-top: 10px;
+
+        .gift-card::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
         }
-        .walmart-blue { background-color: #0071ce; }
-        .banner-red { background-color: #CC2122; }
+        .gift-card::after {
+            content: '';
+            position: absolute;
+            bottom: -60px; left: -30px;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .shine {
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+            transform: skewX(-20deg);
+            animation: shine 3.5s infinite;
+        }
+        @keyframes shine { 100% { left: 200%; } }
+
+        /* STEP CARD */
+        .step-card {
+            background: white;
+            border: 1px solid #e8edf3;
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            text-align: left;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .step-card.highlight {
+            border-color: rgba(0,113,206,0.35);
+        }
+        .step-circle {
+            width: 26px; height: 26px;
+            background: #EEF4FF;
+            border: 1px solid rgba(0,113,206,0.2);
+            color: #0071CE;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 11px;
+            flex-shrink: 0; margin-top: 2px;
+        }
+        .step-card.highlight .step-circle {
+            background: #0071CE;
+            color: white;
+            border-color: #0071CE;
+        }
+
+        /* STICKY CTA */
+        .sticky-footer {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, #f0f4f8 70%, transparent);
+            padding: 10px 20px 30px;
+            z-index: 50;
+            display: flex;
+            justify-content: center;
+        }
+        .btn-sticky {
+            background: #0071CE;
+            color: white;
+            font-weight: 900;
+            font-size: 17px;
+            padding: 17px;
+            border-radius: 50px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 6px 24px rgba(0,113,206,0.35);
+            transition: transform 0.1s;
+            text-decoration: none;
+            display: block;
+        }
+        .btn-sticky:active { transform: scale(0.98); }
+
+        /* FAQ */
+        .faq-item { border-top: 1px solid #eee; }
+        .faq-item:last-child { border-bottom: 1px solid #eee; }
+        .faq-q {
+            width: 100%; background: none; border: none;
+            padding: 14px 0; text-align: left;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px; font-weight: 500; color: #111;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: space-between; gap: 8px;
+        }
+        .faq-icon { font-size: 18px; color: #aaa; transition: transform 0.2s; flex-shrink: 0; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); color: #0071CE; }
+        .faq-a {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.3s ease;
+            font-size: 12px; color: #666; line-height: 1.6;
+        }
+        .faq-item.open .faq-a { max-height: 200px; padding-bottom: 14px; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
     </style>
 </head>
-<body class="flex flex-col items-center">
+<body class="flex flex-col min-h-screen px-4 py-5 max-w-md mx-auto">
 
-    <div class="w-full banner-red py-2.5 text-center shadow-sm">
-        <p class="text-[13px] font-bold text-white tracking-tight">3,500+ People Already Claimed</p>
+    <!-- TOP BADGE -->
+    <div class="flex items-center justify-center gap-2 mb-4 opacity-70">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0071CE" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#999;">Official Reward Program</span>
     </div>
 
-    <main class="w-full max-w-[400px] px-6 py-6 flex flex-col items-center">
-        
-        <div class="mb-5 w-[45px]">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Walmart_spark_%282025%29.svg/1280px-Walmart_spark_%282025%29.svg.png" alt="Walmart Logo" class="w-full h-auto">
+    <!-- GIFT CARD -->
+    <div class="gift-card">
+        <div class="shine"></div>
+
+        <!-- Walmart Logo centered -->
+        <div style="display:flex;justify-content:center;position:relative;z-index:1;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Walmart_spark_%282025%29.svg/1280px-Walmart_spark_%282025%29.svg.png"
+                 alt="Walmart"
+                 style="height:52px;width:52px;object-fit:contain;filter:brightness(0) invert(1);opacity:1;">
         </div>
 
-        <div class="text-center mb-8">
-            <h1 class="text-[26px] font-[800] leading-tight tracking-tight mb-3"></b>Walmart Mother's Day Gift</b></h1>
-            <p class="text-gray-500 text-[15px] font-medium leading-snug px-4">
-                Claim your <span class="text-[#CC2122] font-bold">$750</span> Walmart Mother's Day gift in just a few simple steps.
-            </p>
-        </div>
-
-        <div class="w-full space-y-3.5 mb-8">
-            <div class="step-card p-4 flex items-center gap-5">
-                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[17px] font-black">1</div>
-                <p class="font-bold text-[16px]">Click "Claim Now"</p>
-            </div>
-            <div class="step-card p-4 flex items-center gap-5">
-                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[17px] font-black">2</div>
-                <p class="font-bold text-[16px]">Enter your email and basic info</p>
-            </div>
-            <div class="step-card p-4 flex items-center gap-5">
-                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[17px] font-black">3</div>
-                <p class="font-bold text-[16px]">Complete 4-5 sponsored deals</p>
-            </div>
-            <div class="step-card p-4 flex items-center gap-5">
-                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full walmart-blue text-white text-[17px] font-black">4</div>
-                <p class="font-bold text-[16px]">Enjoy your $750 Walmart Mother's Day gift!</p>
+        <!-- Balance centered -->
+        <div style="position:relative;z-index:1;text-align:center;">
+            <p style="font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;opacity:0.6;margin-bottom:2px;">Pending Balance</p>
+            <h1 style="font-size:42px;font-weight:900;letter-spacing:-1px;line-height:1;">$750.00</h1>
+            <div style="margin-top:8px;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);padding:5px 12px;border-radius:100px;">
+                <div style="width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;"></div>
+                <span style="font-size:8px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Ready to Claim</span>
             </div>
         </div>
 
-        <div class="w-full text-center mb-10">
-            <a id="claim-button" href="https://trksy.org/aff_c?offer_id=1921&aff_id=167172" 
-               class="block w-full banner-red text-white text-[20px] font-black py-4 rounded-full transition-transform active:scale-95 shadow-lg uppercase tracking-wide">
-                CLAIM NOW
-            </a>
-            <p class="text-[10px] text-gray-400 mt-4 px-6 font-medium leading-tight text-center">
-                Completion of sponsored deals is required to claim your Mother's Day gift.
-            </p>
+        <!-- Label -->
+        <div style="position:relative;z-index:1;display:flex;justify-content:flex-end;">
+            <span style="font-size:9px;opacity:0.5;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Walmart Reward</span>
         </div>
+    </div>
 
-        <div class="w-full">
-            <h2 class="text-center text-[22px] font-[800] mb-6">Frequently Asked Questions</h2>
-            
-            <div class="space-y-3">
-                <div class="faq-card p-5 cursor-pointer border border-gray-50" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-[14px]">How long do the deals take?</span>
-                        <span class="plus-icon text-gray-400 text-2xl font-light transition-transform">+</span>
-                    </div>
-                    <div class="faq-answer text-[13px] text-gray-500 leading-relaxed">Most people finish all required deals in about 15-20 minutes.</div>
-                </div>
+    <!-- LIVE COUNTER -->
+    <div class="flex items-center justify-center gap-2 mb-4">
+        <div style="width:7px;height:7px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 8px #22c55e;"></div>
+        <p style="font-size:11px;color:#666;">
+            <span id="claim-counter" style="color:#111;font-weight:700;">3,521</span>
+            people claimed this week
+        </p>
+    </div>
 
-                <div class="faq-card p-5 cursor-pointer border border-gray-50" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-[14px]">When will I receive my gift?</span>
-                        <span class="plus-icon text-gray-400 text-2xl font-light transition-transform">+</span>
-                    </div>
-                    <div class="faq-answer text-[13px] text-gray-500 leading-relaxed">Your digital gift card is sent to your email immediately after verification.</div>
-                </div>
+    <!-- STEPS -->
+    <div style="margin-bottom:12px;">
+        <p style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.15em;text-align:center;margin-bottom:10px;">How To Claim</p>
+
+        <div class="step-card">
+            <div class="step-circle">1</div>
+            <div>
+                <h3 style="font-weight:700;font-size:14px;margin-bottom:3px;">Click "Claim Now"</h3>
+                <p style="color:#888;font-size:11px;line-height:1.5;">Start your registration to unlock your reward.</p>
             </div>
         </div>
 
-        <footer class="mt-16 text-[10px] text-gray-400 text-center pb-10">
-            <p>© 2026 Promotional Program. Not affiliated with Walmart Inc.</p>
-        </footer>
+        <div class="step-card">
+            <div class="step-circle">2</div>
+            <div>
+                <h3 style="font-weight:700;font-size:14px;margin-bottom:3px;">Enter your email and basic info</h3>
+                <p style="color:#888;font-size:11px;line-height:1.5;">Required for reward delivery and confirmation.</p>
+            </div>
+        </div>
 
-    </main>
+        <div class="step-card highlight">
+            <div class="step-circle">3</div>
+            <div>
+                <h3 style="font-weight:700;font-size:14px;margin-bottom:3px;">Complete 4–5 sponsored deals</h3>
+                <p style="color:#888;font-size:11px;line-height:1.5;">
+                    <span style="color:#0071CE;font-weight:700;">Required:</span> More deals = higher reward amount.
+                </p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-circle">4</div>
+            <div>
+                <h3 style="font-weight:700;font-size:14px;margin-bottom:3px;">Enjoy your $750 Walmart reward!</h3>
+                <p style="color:#888;font-size:11px;line-height:1.5;">Delivered to your email after deal verification.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ — 2 questions only -->
+    <div style="background:white;border-radius:18px;padding:18px 16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.05);">
+        <p style="font-size:13px;font-weight:700;color:#0071CE;margin-bottom:4px;">Frequently Asked Questions</p>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                How long do the deals take?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">Each deal can be completed at your own pace. Most people finish all required deals in about 15–20 minutes.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                When will I receive my gift?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">Your digital gift card is sent to your email immediately after your deals are verified and completed.</div>
+        </div>
+    </div>
+
+    <!-- NOTICE -->
+    <p style="font-size:10px;color:#bbb;text-align:center;margin-bottom:8px;line-height:1.6;">
+        By clicking "Claim Now" you agree to complete the required steps to receive your gift.
+    </p>
+
+    <!-- FOOTER -->
+    <footer style="text-align:center;font-size:10px;color:#ccc;line-height:1.7;padding-bottom:8px;">
+        © 2026 Promotional Program. Not affiliated with Walmart Inc.<br>
+        Completion of sponsored deals required to claim your reward.
+    </footer>
+
+    <!-- STICKY CTA -->
+    <div class="sticky-footer">
+        <a href="https://trksy.org/aff_c?offer_id=1921&aff_id=167172"
+           class="btn-sticky"
+           onclick="gtag('event','click',{event_category:'CTA',event_label:'walmart_sticky_cta'})">
+            Claim Now →
+        </a>
+    </div>
 
     <script>
-        function toggleFaq(element) {
-            element.classList.toggle('active');
-            const icon = element.querySelector('.plus-icon');
-            icon.style.transform = element.classList.contains('active') ? 'rotate(45deg)' : 'rotate(0deg)';
+        function toggleFaq(btn) {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
         }
 
-        document.getElementById('claim-button').addEventListener('click', function() {
-            gtag('event', 'click_cta', {
-                'event_category': 'conversion',
-                'event_label': 'Walmart Mother Day Correct Scale',
-                'value': 1
+        const counterEl = document.getElementById('claim-counter');
+        let count = 3521;
+        setInterval(() => {
+            if (Math.random() > 0.5) {
+                count += Math.floor(Math.random() * 3) + 1;
+                counterEl.innerText = count.toLocaleString();
+            }
+        }, 5000);
+
+        let depths = { 25: false, 50: false, 75: false, 100: false };
+        window.addEventListener('scroll', () => {
+            const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            [25, 50, 75, 100].forEach(d => {
+                if (pct >= d && !depths[d]) {
+                    depths[d] = true;
+                    gtag('event', 'scroll_depth', { event_category: 'Engagement', event_label: d + '%' });
+                }
             });
         });
+
+        (function() {
+            function appendSource() {
+                var s = new URLSearchParams(window.location.search).get('source');
+                if (!s) return;
+                document.querySelectorAll('a').forEach(function(link) {
+                    var href = link.getAttribute('href');
+                    if (!href || href.startsWith('#')) return;
+                    var sep = href.includes('?') ? '&' : '?';
+                    if (!href.includes('source=')) link.setAttribute('href', href + sep + 'source=' + encodeURIComponent(s));
+                });
+            }
+            new MutationObserver(appendSource).observe(document.body, { childList: true, subtree: true });
+            appendSource();
+        })();
     </script>
 </body>
 </html>
