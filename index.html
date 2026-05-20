@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walmart Reward Program</title>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BV47JTL2R9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -9,310 +13,366 @@
       gtag('config', 'G-BV47JTL2R9');
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Walmart Reward Program</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8;
+            background-color: #f3f4f6;
             color: #111;
-            padding-bottom: 110px;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* GIFT CARD */
-        .gift-card {
-            background: linear-gradient(135deg, #0071CE 0%, #004f9a 60%, #003d7a 100%);
-            border-radius: 20px;
-            padding: 18px 20px 20px;
+        .wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 32px 16px 100px;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .logo-wrap img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .logo-wrap span {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #111;
+        }
+        .header h1 {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .header h1 span {
+            color: #0071CE;
+            font-style: italic;
+        }
+        .header p {
+            color: #6b7280;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.5;
+            padding: 0 16px;
+        }
+        .header p strong {
+            color: #0071CE;
+            font-weight: 700;
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .section-title h2 {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #374151;
+        }
+        .section-title .underline {
+            width: 48px;
+            height: 2px;
+            background: #0071CE;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* STEP CARDS */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .step-card {
+            background: white;
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .step-num {
+            width: 40px; height: 40px;
+            min-width: 40px;
+            background: #0071CE;
             color: white;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 12px 40px rgba(0,113,206,0.3);
-            margin-bottom: 10px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            font-weight: 900;
+        }
+        .step-text h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 3px;
+        }
+        .step-text p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: #0071CE;
+            color: white;
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 18px;
+            border-radius: 14px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0,113,206,0.3);
+            transition: transform 0.1s, box-shadow 0.1s;
+            margin-bottom: 16px;
+        }
+        .cta-btn:active { transform: scale(0.98); }
+
+        .availability {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .availability-dot {
+            width: 10px; height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+        }
+
+        /* FAQ */
+        .faq-title {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #374151;
+            margin-bottom: 16px;
+        }
+        .faq-list {
             display: flex;
             flex-direction: column;
             gap: 12px;
+            margin-bottom: 32px;
         }
-
-        .gift-card::before {
-            content: '';
-            position: absolute;
-            top: -40px; right: -40px;
-            width: 180px; height: 180px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.06);
-        }
-        .gift-card::after {
-            content: '';
-            position: absolute;
-            bottom: -60px; left: -30px;
-            width: 200px; height: 200px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.04);
-        }
-
-        .shine {
-            position: absolute;
-            top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
-            transform: skewX(-20deg);
-            animation: shine 3.5s infinite;
-        }
-        @keyframes shine { 100% { left: 200%; } }
-
-        /* STEP CARD */
-        .step-card {
+        .faq-item {
             background: white;
-            border: 1px solid #e8edf3;
             border-radius: 14px;
-            padding: 14px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            text-align: left;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
-        .step-card.highlight {
-            border-color: rgba(0,113,206,0.35);
-        }
-        .step-circle {
-            width: 26px; height: 26px;
-            background: #EEF4FF;
-            border: 1px solid rgba(0,113,206,0.2);
-            color: #0071CE;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 11px;
-            flex-shrink: 0; margin-top: 2px;
-        }
-        .step-card.highlight .step-circle {
-            background: #0071CE;
-            color: white;
-            border-color: #0071CE;
-        }
-
-        /* STICKY CTA */
-        .sticky-footer {
-            position: fixed;
-            bottom: 0; left: 0; width: 100%;
-            background: linear-gradient(to top, #f0f4f8 70%, transparent);
-            padding: 10px 20px 30px;
-            z-index: 50;
-            display: flex;
-            justify-content: center;
-        }
-        .btn-sticky {
-            background: #0071CE;
-            color: white;
-            font-weight: 900;
-            font-size: 17px;
-            padding: 17px;
-            border-radius: 50px;
-            width: 100%;
-            max-width: 450px;
-            text-align: center;
-            box-shadow: 0 6px 24px rgba(0,113,206,0.35);
-            transition: transform 0.1s;
-            text-decoration: none;
-            display: block;
-        }
-        .btn-sticky:active { transform: scale(0.98); }
-
-        /* FAQ */
-        .faq-item { border-top: 1px solid #eee; }
-        .faq-item:last-child { border-bottom: 1px solid #eee; }
         .faq-q {
-            width: 100%; background: none; border: none;
-            padding: 14px 0; text-align: left;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            text-align: left;
             font-family: 'Inter', sans-serif;
-            font-size: 13px; font-weight: 500; color: #111;
+            font-size: 14px;
+            font-weight: 600;
+            color: #111;
             cursor: pointer;
-            display: flex; align-items: center; justify-content: space-between; gap: 8px;
         }
-        .faq-icon { font-size: 18px; color: #aaa; transition: transform 0.2s; flex-shrink: 0; }
-        .faq-item.open .faq-icon { transform: rotate(45deg); color: #0071CE; }
+        .faq-chevron {
+            width: 20px; height: 20px;
+            min-width: 20px;
+            color: #9ca3af;
+            transition: transform 0.25s;
+        }
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+            color: #0071CE;
+        }
         .faq-a {
-            max-height: 0; overflow: hidden;
+            max-height: 0;
+            overflow: hidden;
             transition: max-height 0.3s ease;
-            font-size: 12px; color: #666; line-height: 1.6;
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.6;
+            padding: 0 16px;
         }
-        .faq-item.open .faq-a { max-height: 200px; padding-bottom: 14px; }
+        .faq-item.open .faq-a {
+            max-height: 200px;
+            padding: 0 16px 16px;
+        }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+        /* FOOTER */
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #9ca3af;
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen px-4 py-5 max-w-md mx-auto">
+<body>
 
-    <!-- TOP BADGE -->
-    <div class="flex items-center justify-center gap-2 mb-4 opacity-70">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0071CE" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#999;">Official Reward Program</span>
-    </div>
+<div class="wrapper">
 
-    <!-- GIFT CARD -->
-    <div class="gift-card">
-        <div class="shine"></div>
-
-        <!-- Walmart Logo centered -->
-        <div style="display:flex;justify-content:center;position:relative;z-index:1;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Walmart_spark_%282025%29.svg/1280px-Walmart_spark_%282025%29.svg.png"
-                 alt="Walmart"
-                 style="height:52px;width:52px;object-fit:contain;filter:brightness(0) invert(1);opacity:1;">
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Walmart_spark_%282025%29.svg/1280px-Walmart_spark_%282025%29.svg.png" alt="Walmart">
+            <span>Walmart</span>
         </div>
-
-        <!-- Balance centered -->
-        <div style="position:relative;z-index:1;text-align:center;">
-            <p style="font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;opacity:0.6;margin-bottom:2px;">Pending Balance</p>
-            <h1 style="font-size:42px;font-weight:900;letter-spacing:-1px;line-height:1;">$750.00</h1>
-            <div style="margin-top:8px;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);padding:5px 12px;border-radius:100px;">
-                <div style="width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;"></div>
-                <span style="font-size:8px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Ready to Claim</span>
-            </div>
-        </div>
-
-        <!-- Label -->
-        <div style="position:relative;z-index:1;display:flex;justify-content:flex-end;">
-            <span style="font-size:9px;opacity:0.5;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Walmart Reward</span>
-        </div>
-    </div>
-
-    <!-- LIVE COUNTER -->
-    <div class="flex items-center justify-center gap-2 mb-4">
-        <div style="width:7px;height:7px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 8px #22c55e;"></div>
-        <p style="font-size:11px;color:#666;">
-            <span id="claim-counter" style="color:#111;font-weight:700;">3,521</span>
-            people claimed this week
-        </p>
+        <h1>Get $750 Towards <span>Walmart!</span></h1>
+        <p>Simply follow the steps below to claim your gift card reward worth up to <strong>$750</strong></p>
     </div>
 
     <!-- STEPS -->
-    <div style="margin-bottom:12px;">
-        <p style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.15em;text-align:center;margin-bottom:10px;">How To Claim</p>
+    <div class="section-title">
+        <h2>Steps Required</h2>
+        <div class="underline"></div>
+    </div>
 
+    <div class="steps">
         <div class="step-card">
-            <div class="step-circle">1</div>
-            <div>
-                <h3 style="font-weight:700;font-size:14px;margin-bottom:3px;">Click "Claim Now"</h3>
-                <p style="color:#888;font-size:11px;line-height:1.5;">Start your registration to unlock your reward.</p>
+            <div class="step-num">1</div>
+            <div class="step-text">
+                <h3>Initial Step</h3>
+                <p>Click on "CLAIM NOW" below</p>
             </div>
         </div>
-
         <div class="step-card">
-            <div class="step-circle">2</div>
-            <div>
-                <h3 style="font-weight:700;font-size:14px;margin-bottom:3px;">Enter your email and basic info</h3>
-                <p style="color:#888;font-size:11px;line-height:1.5;">Required for reward delivery and confirmation.</p>
+            <div class="step-num">2</div>
+            <div class="step-text">
+                <h3>Registration</h3>
+                <p>Enter your email and basic information</p>
             </div>
         </div>
-
-        <div class="step-card highlight">
-            <div class="step-circle">3</div>
-            <div>
-                <h3 style="font-weight:700;font-size:14px;margin-bottom:3px;">Complete 4–5 sponsored deals</h3>
-                <p style="color:#888;font-size:11px;line-height:1.5;">
-                    <span style="color:#0071CE;font-weight:700;">Required:</span> More deals = higher reward amount.
-                </p>
+        <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-text">
+                <h3>Qualification</h3>
+                <p>Complete 4–5+ recommended deals</p>
             </div>
         </div>
-
         <div class="step-card">
-            <div class="step-circle">4</div>
-            <div>
-                <h3 style="font-weight:700;font-size:14px;margin-bottom:3px;">Enjoy your $750 Walmart reward!</h3>
-                <p style="color:#888;font-size:11px;line-height:1.5;">Delivered to your email after deal verification.</p>
+            <div class="step-num">4</div>
+            <div class="step-text">
+                <h3>Reward Delivery</h3>
+                <p>Claim your reward in your email</p>
             </div>
         </div>
     </div>
 
-    <!-- FAQ — 2 questions only -->
-    <div style="background:white;border-radius:18px;padding:18px 16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.05);">
-        <p style="font-size:13px;font-weight:700;color:#0071CE;margin-bottom:4px;">Frequently Asked Questions</p>
+    <!-- CTA -->
+    <div class="cta-section">
+        <a href="https://trksy.org/aff_c?offer_id=1921&aff_id=167172"
+           class="cta-btn"
+           onclick="gtag('event','click',{event_category:'CTA',event_label:'walmart_claim_now'})">
+            CLAIM NOW
+        </a>
+        <div class="availability">
+            <div class="availability-dot"></div>
+            <span>Limited availability remaining today</span>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-title">FAQ</div>
+    <div class="faq-list">
+
         <div class="faq-item">
             <button class="faq-q" onclick="toggleFaq(this)">
-                How long do the deals take?
-                <span class="faq-icon">+</span>
+                How many deals do I need to complete?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a">You need to complete 4–5 sponsored deals. The more deals you complete, the higher your reward amount.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                How long does the process take?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </button>
             <div class="faq-a">Each deal can be completed at your own pace. Most people finish all required deals in about 15–20 minutes.</div>
         </div>
+
         <div class="faq-item">
             <button class="faq-q" onclick="toggleFaq(this)">
-                When will I receive my gift?
-                <span class="faq-icon">+</span>
+                What kind of deals are involved?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </button>
-            <div class="faq-a">Your digital gift card is sent to your email immediately after your deals are verified and completed.</div>
+            <div class="faq-a">Deals include sponsored offers, app trials, and partner surveys. You choose which ones to complete from the available options.</div>
         </div>
-    </div>
 
-    <!-- NOTICE -->
-    <p style="font-size:10px;color:#bbb;text-align:center;margin-bottom:8px;line-height:1.6;">
-        By clicking "Claim Now" you agree to complete the required steps to receive your gift.
-    </p>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                When will I receive my reward?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a">Your digital gift card is sent to your email after your deals are verified and completed.</div>
+        </div>
+
+    </div>
 
     <!-- FOOTER -->
-    <footer style="text-align:center;font-size:10px;color:#ccc;line-height:1.7;padding-bottom:8px;">
-        © 2026 Promotional Program. Not affiliated with Walmart Inc.<br>
-        Completion of sponsored deals required to claim your reward.
+    <footer>
+        <p>© 2026 Promotional Program. Not affiliated with Walmart Inc.</p>
     </footer>
 
-    <!-- STICKY CTA -->
-    <div class="sticky-footer">
-        <a href="https://trksy.org/aff_c?offer_id=1921&aff_id=167172"
-           class="btn-sticky"
-           onclick="gtag('event','click',{event_category:'CTA',event_label:'walmart_sticky_cta'})">
-            Claim Now →
-        </a>
-    </div>
+</div>
 
-    <script>
-        function toggleFaq(btn) {
-            const item = btn.closest('.faq-item');
-            const isOpen = item.classList.contains('open');
-            document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-            if (!isOpen) item.classList.add('open');
-        }
+<script>
+    function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    }
 
-        const counterEl = document.getElementById('claim-counter');
-        let count = 3521;
-        setInterval(() => {
-            if (Math.random() > 0.5) {
-                count += Math.floor(Math.random() * 3) + 1;
-                counterEl.innerText = count.toLocaleString();
+    let depths = { 25: false, 50: false, 75: false, 100: false };
+    window.addEventListener('scroll', () => {
+        const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        [25, 50, 75, 100].forEach(d => {
+            if (pct >= d && !depths[d]) {
+                depths[d] = true;
+                gtag('event', 'scroll_depth', { event_category: 'Engagement', event_label: d + '%' });
             }
-        }, 5000);
-
-        let depths = { 25: false, 50: false, 75: false, 100: false };
-        window.addEventListener('scroll', () => {
-            const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-            [25, 50, 75, 100].forEach(d => {
-                if (pct >= d && !depths[d]) {
-                    depths[d] = true;
-                    gtag('event', 'scroll_depth', { event_category: 'Engagement', event_label: d + '%' });
-                }
-            });
         });
+    });
+</script>
 
-        (function() {
-            function appendSource() {
-                var s = new URLSearchParams(window.location.search).get('source');
-                if (!s) return;
-                document.querySelectorAll('a').forEach(function(link) {
-                    var href = link.getAttribute('href');
-                    if (!href || href.startsWith('#')) return;
-                    var sep = href.includes('?') ? '&' : '?';
-                    if (!href.includes('source=')) link.setAttribute('href', href + sep + 'source=' + encodeURIComponent(s));
-                });
-            }
-            new MutationObserver(appendSource).observe(document.body, { childList: true, subtree: true });
-            appendSource();
-        })();
-    </script>
 </body>
 </html>
